@@ -1,29 +1,27 @@
 # Group-4-python-examples
-#1. Queue (FIFO)
-from collections import deque
-
-class Queue:
+#2. STACK (LIFO)
+class Stack:
     def __init__(self):
-        self.queue = deque()
+        self.stack = []
 
-    def enqueue(self, x):
-        self.queue.append(x)
+    def push(self, x):
+        self.stack.append(x)
 
-    def dequeue(self):
+    def pop(self):
         if not self.is_empty():
-            return self.queue.popleft()
-        return "Queue is empty"
+            return self.stack.pop()
+        return "Stack is empty"
 
-    def front(self):
-        return self.queue[0] if not self.is_empty() else None
+    def peek(self):
+        return self.stack[-1] if not self.is_empty() else None
 
     def is_empty(self):
-        return len(self.queue) == 0
+        return len(self.stack) == 0
 
 
 # Example
-q = Queue()
-q.enqueue(10)
-q.enqueue(20)
-print(q.dequeue())  # 10
-print(q.front())    # 20
+s = Stack()
+s.push(5)
+s.push(10)
+print(s.pop())   # 10
+print(s.peek())  # 5
